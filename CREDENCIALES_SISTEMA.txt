@@ -1,0 +1,7 @@
+1. Super Administrador
+Usuario:    superadmin@unefa.edu.ve (o Super Administrador)
+Contrasena: 12345678
+
+2. Coordinador Academico
+Usuario:    coordinador@unefa.edu.ve (o Coordinador Academico)
+Contrasena: 12345678

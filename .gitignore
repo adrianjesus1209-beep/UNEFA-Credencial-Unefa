@@ -1,0 +1,12 @@
+# Entornos y temporales de editor / OS
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Archivos de respaldo o temporales
+*.tmp
+*.bak
+*.swp
+*.log
+*.zip
