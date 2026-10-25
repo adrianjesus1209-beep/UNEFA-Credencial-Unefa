@@ -108,17 +108,17 @@ Para mantener el orden entre los cuatro departamentos, el repositorio se organiz
    - Rama donde convergen las caracteristicas terminadas y revisadas de todos los departamentos.
 
 3. **Ramas Fijas por Departamento:**
-   - **`dept/backend`**: Base para el equipo de Backend.
-   - **`dept/frontend`**: Base para el equipo de Frontend.
-   - **`dept/database`**: Base para el equipo de Base de Datos.
-   - **`dept/docs`**: Base para el equipo de Documentacion.
+   - **`Backend`**: Base para el equipo de Backend.
+   - **`Frontend`**: Base para el equipo de Frontend.
+   - **`Database`**: Base para el equipo de Base de Datos.
+   - **`Documentacion`**: Base para el equipo de Documentacion.
 
 4. **Ramas de Trabajo Especificas (Features / Correcciones):**
    - Cada miembro debe crear una rama a partir de la rama de su departamento, siguiendo este formato:
-     - `feature/backend-nombre-tarea`
-     - `feature/frontend-nombre-tarea`
-     - `feature/database-nombre-tarea`
-     - `feature/docs-nombre-tarea`
+     - `Backend-nombre-tarea`
+     - `Frontend-nombre-tarea`
+     - `Database-nombre-tarea`
+     - `Documentacion-nombre-tarea`
 
 ---
 
