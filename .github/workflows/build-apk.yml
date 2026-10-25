@@ -1,0 +1,61 @@
+name: Build and Release Android APK
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        working-directory: ./app_mobile
+        run: |
+          npm ci || npm install
+          npx cap sync android
+
+      - name: Grant Execute Permission to Gradlew
+        working-directory: ./app_mobile/android
+        run: chmod +x gradlew
+
+      - name: Build Debug APK
+        working-directory: ./app_mobile/android
+        run: ./gradlew assembleDebug
+
+      - name: Prepare APK Asset
+        run: |
+          cp app_mobile/android/app/build/outputs/apk/debug/app-debug.apk UNEFA_Credencial_Digital.apk
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: UNEFA_Credencial_Digital.apk
+          name: Sistema UNEFA Movil ${{ github.ref_name }}
+          body: |
+            Distribucion oficial de la aplicacion movil UNEFA Credencial y Asistencia Digital.
+            - Conexion en tiempo real con la base de datos central.
+            - Soporte integrado de camara para lectura de codigos QR.
+            - Interfaz adaptada a pantalla completa para estudiantes y docentes.
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

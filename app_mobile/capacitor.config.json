@@ -1,0 +1,18 @@
+{
+  "appId": "ve.gob.unefa.credencial",
+  "appName": "UNEFA Credencial",
+  "webDir": "www",
+  "server": {
+    "url": "https://unefaasistencia.infinityfreeapp.com",
+    "cleartext": true,
+    "allowNavigation": [
+      "unefaasistencia.infinityfreeapp.com",
+      "*.infinityfreeapp.com"
+    ]
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}
